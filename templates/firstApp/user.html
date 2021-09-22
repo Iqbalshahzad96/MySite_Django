@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Site</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/> 
+</head>
+<body>
+    <h2>Here are your user records:</h2>
+    <div class="djangtwo">
+      {% if users %}
+      <ol>
+        {% for person in users %}
+        <li>UserID: {{person.id}}</li>
+          <ul>
+            <li>First Name: {{person.firstName}}</li>
+            <li>Last Name: {{person.lastName}}</li>
+            <li>Email: {{person.email}}</li>
+          </ul>
+          {% endfor %}
+      </ol>
+
+      {% else %}
+        <p>No User Found.</p>
+      {% endif %}
+    </div>
+</body>
+</html>
