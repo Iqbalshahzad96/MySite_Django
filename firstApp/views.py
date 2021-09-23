@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from firstApp.models import Topic,Webpage,AccessRecord,User
+from . import forms
 
 # Create your views here.
 
@@ -18,3 +19,15 @@ def user(request):
 
 def help(request):
     return render(request, 'firstApp/help.html')
+
+def signUp (request):
+    form = forms.SignUp()
+    if request.method == 'POST':
+        form = forms.SignUp(request.POST)
+        
+        if form.is_valid():
+            form.save(commit=True)
+            print("validation Succes")
+        else:
+            print("not valid")
+    return render (request, 'firstApp/form_page.html', {'form':form})
