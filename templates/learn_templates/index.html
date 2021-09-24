@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% extends "learn_templates/base.html" %}
     {% block body_block %}
-    <h1>WELCOME TO INDEX</h1>
-    <h2>This is index page showing.</h2>
+    <h1>{{text|upper}}</h1>
+    <h2>{{number|add:"37"}}</h2>
     {% endblock %}
