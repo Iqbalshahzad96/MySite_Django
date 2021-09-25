@@ -2,5 +2,6 @@
 {% extends "learn_templates/base.html" %}
     {% block body_block %}
     <h1>{{text|upper}}</h1>
+    <h1>{{text|cut:'l'}}</h1>
     <h2>{{number|add:"37"}}</h2>
     {% endblock %}
